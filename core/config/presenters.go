@@ -70,7 +70,6 @@ type EnvPrinter struct {
 	LogFileDir                                 string          `json:"LOG_FILE_DIR"`
 	LogLevel                                   LogLevel        `json:"LOG_LEVEL"`
 	LogSQL                                     bool            `json:"LOG_SQL"`
-	LogSQLMigrations                           bool            `json:"LOG_SQL_MIGRATIONS"`
 	LogToDisk                                  bool            `json:"LOG_TO_DISK"`
 	TriggerFallbackDBPollInterval              time.Duration   `json:"JOB_PIPELINE_DB_POLL_INTERVAL"`
 
@@ -103,7 +102,6 @@ type EnvPrinter struct {
 
 	Port                         uint16          `json:"CHAINLINK_PORT"`
 	ReaperExpiration             models.Duration `json:"REAPER_EXPIRATION"`
-	ReplayFromBlock              int64           `json:"REPLAY_FROM_BLOCK"`
 	RootDir                      string          `json:"ROOT"`
 	SecureCookies                bool            `json:"SECURE_COOKIES"`
 	SessionTimeout               models.Duration `json:"SESSION_TIMEOUT"`
@@ -167,7 +165,6 @@ func NewConfigPrinter(cfg GeneralConfig) ConfigPrinter {
 			LogFileDir:                         cfg.LogFileDir(),
 			LogLevel:                           LogLevel{Level: cfg.LogLevel()},
 			LogSQL:                             cfg.LogSQL(),
-			LogSQLMigrations:                   cfg.LogSQLMigrations(),
 			LogToDisk:                          cfg.LogToDisk(),
 
 			// OCRV1
@@ -199,7 +196,6 @@ func NewConfigPrinter(cfg GeneralConfig) ConfigPrinter {
 
 			Port:                          cfg.Port(),
 			ReaperExpiration:              cfg.ReaperExpiration(),
-			ReplayFromBlock:               cfg.ReplayFromBlock(),
 			RootDir:                       cfg.RootDir(),
 			SecureCookies:                 cfg.SecureCookies(),
 			SessionTimeout:                cfg.SessionTimeout(),
